@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareLink - Health Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div id="app" class="container mx-auto p-4 md:p-8">
+
+        <!-- Auth View -->
+        <div id="auth-view">
+            <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-lg overflow-hidden my-10">
+                <div class="p-8 md:p-12">
+                    <div class="text-center">
+                        <svg class="w-12 h-12 mx-auto text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h1 class="text-3xl font-bold text-gray-900 mt-4">Welcome to CareLink</h1>
+                        <p class="text-gray-500 mt-2">Your unified health management dashboard.</p>
+                    </div>
+                    
+                    <div class="mt-8 flex border-b border-gray-200">
+                        <button id="show-login-btn" class="flex-1 py-3 text-sm font-semibold text-center border-b-2 border-indigo-600 text-indigo-600">Login</button>
+                        <button id="show-register-btn" class="flex-1 py-3 text-sm font-semibold text-center border-b-2 border-transparent text-gray-500 hover:text-indigo-600">Register</button>
+                    </div>
+
+                    <div class="mt-8 overflow-hidden">
+                        <!-- Login Form -->
+                        <form id="login-form" class="form-container space-y-5">
+                             <div>
+                                <label for="login-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="login-email" required autocomplete="email" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                                <input type="password" id="login-password" required autocomplete="current-password" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign In</button>
+                        </form>
+
+                        <!-- Register Form -->
+                        <form id="register-form" class="form-container space-y-5 hidden">
+                            <div>
+                                <label for="register-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input type="text" id="register-name" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="register-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="register-email" required autocomplete="email" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="register-password" class="block text-sm font-medium text-gray-700">Password</label>
+                                <input type="password" id="register-password" required autocomplete="new-password" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="hidden">
+            <header class="flex flex-col md:flex-row justify-between items-center mb-8 pb-4 border-b border-gray-200">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                    <p class="text-gray-500">Welcome, <span id="user-name" class="font-semibold text-indigo-600">User</span>!</p>
+                </div>
+                <button id="logout-btn" class="mt-4 md:mt-0 py-2 px-5 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Logout</button>
+            </header>
+            <main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <section class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-semibold">My Patients</h2>
+                        <button id="add-patient-btn" class="py-2 px-4 rounded-lg text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add Patient</button>
+                    </div>
+                    <div id="patients-list" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2"></div>
+                </section>
+                <section class="bg-white p-6 rounded-2xl shadow-lg">
+                     <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-semibold">Available Doctors</h2>
+                        <button id="add-doctor-btn" class="py-2 px-4 rounded-lg text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Add Doctor</button>
+                    </div>
+                    <div id="doctors-list" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals & Toast -->
+        <div id="patient-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop"> <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"> <h2 class="text-2xl font-bold mb-6">Add New Patient</h2> <form id="add-patient-form" class="space-y-4"> <div><label for="patient-name" class="block text-sm font-medium text-gray-700">Full Name</label><input type="text" id="patient-name" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"></div> <div><label for="patient-dob" class="block text-sm font-medium text-gray-700">Date of Birth</label><input type="date" id="patient-dob" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"></div> <div><label for="patient-history" class="block text-sm font-medium text-gray-700">Medical History</label><textarea id="patient-history" rows="3" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div> <div class="mt-8 flex justify-end space-x-4"> <button type="button" id="cancel-patient-modal" class="py-2 px-4 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Cancel</button> <button type="submit" class="py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Save Patient</button> </div> </form> </div> </div>
+        
+    <div id="doctor-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop"> <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"> <h2 class="text-2xl font-bold mb-6">Add New Doctor</h2> <form id="add-doctor-form" class="space-y-4"> <div><label for="doctor-name" class="block text-sm font-medium text-gray-700">Full Name</label><input type="text" id="doctor-name" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Dr. John Smith"></div> <div><label for="doctor-specialization" class="block text-sm font-medium text-gray-700">Specialization</label><select id="doctor-specialization" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md"><option value="">Select Specialization</option><option value="Cardiology">Cardiology</option><option value="Pediatrics">Pediatrics</option><option value="Dermatology">Dermatology</option><option value="Orthopedics">Orthopedics</option><option value="Neurology">Neurology</option><option value="General Medicine">General Medicine</option><option value="Psychiatry">Psychiatry</option><option value="Oncology">Oncology</option><option value="Radiology">Radiology</option><option value="Endocrinology">Endocrinology</option><option value="Gynecology">Gynecology</option><option value="Urology">Urology</option><option value="Ophthalmology">Ophthalmology</option><option value="ENT">ENT</option><option value="Gastroenterology">Gastroenterology</option><option value="Pulmonology">Pulmonology</option><option value="Rheumatology">Rheumatology</option></select></div> <div class="mt-8 flex justify-end space-x-4"> <button type="button" id="cancel-doctor-modal" class="py-2 px-4 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Cancel</button> <button type="submit" class="py-2 px-4 bg-green-600 text-white rounded-md hover:bg-green-700">Save Doctor</button> </div> </form> </div> </div>
+    <div id="map-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop"> <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"> <h2 class="text-2xl font-bold mb-6">Assign Doctor to <span id="map-patient-name" class="text-indigo-600"></span></h2> <form id="map-doctor-form"> <input type="hidden" id="map-patient-id"> <div> <label for="doctor-select" class="block text-sm font-medium text-gray-700">Select a Doctor</label> <select id="doctor-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select> </div> <div class="mt-8 flex justify-end space-x-4"> <button type="button" id="cancel-map-modal" class="py-2 px-4 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Cancel</button> <button type="submit" class="py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Assign Doctor</button> </div> </form> </div> </div>
+    <div id="toast" class="fixed top-5 right-5 bg-red-500 text-white py-2 px-4 rounded-lg shadow-lg hidden opacity-0 transition-opacity duration-300"> <p id="toast-message"></p> </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+    <div id="map-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop"> <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"> <h2 class="text-2xl font-bold mb-6">Assign Doctor to <span id="map-patient-name" class="text-indigo-600"></span></h2> <form id="map-doctor-form"> <input type="hidden" id="map-patient-id"> <div> <label for="doctor-select" class="block text-sm font-medium text-gray-700">Select a Doctor</label> <select id="doctor-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select> </div> <div class="mt-8 flex justify-end space-x-4"> <button type="button" id="cancel-map-modal" class="py-2 px-4 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Cancel</button> <button type="submit" class="py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Assign Doctor</button> </div> </form> </div> </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
