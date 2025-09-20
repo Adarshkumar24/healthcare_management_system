@@ -1,6 +1,44 @@
 # CareLink - Healthcare Management System
 
+[![Node.js](https://img.shields.io/badge/Node.js-v14+-green.svg)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.18+-blue.svg)](https://expressjs.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v12+-blue.svg)](https://postgresql.org/)
+[![License](https://img.shields.io/badge/license-ISC-green.svg)](LICENSE)
+
 A comprehensive healthcare management system with separate frontend and backend components.
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/healthcare-backend.git
+cd healthcare-backend
+
+# Run the setup script (Unix/Linux/macOS)
+./setup.sh
+
+# Or manual setup:
+npm install
+cp .env.example .env
+# Edit .env with your database credentials
+npm run seed:fresh
+npm run dev
+```
+
+Then open `frontend/index.html` in your browser.
+
+## 📸 Demo
+
+### Login & Registration
+![Login Screen](docs/images/login-screen.png)
+
+### Patient Management Dashboard
+![Patient Dashboard](docs/images/patient-dashboard.png)
+
+### Doctor Assignment
+![Doctor Assignment](docs/images/doctor-assignment.png)
+
+> **Note**: Add screenshots to `docs/images/` directory to display the application interface.
 
 ## Project Overview
 
