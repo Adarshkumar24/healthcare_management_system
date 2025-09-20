@@ -1,240 +1,196 @@
-# CareLink - Healthcare Management System
+# 🏥 Healthcare Management System
 
 [![Node.js](https://img.shields.io/badge/Node.js-v14+-green.svg)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.18+-blue.svg)](https://expressjs.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v12+-blue.svg)](https://postgresql.org/)
 [![License](https://img.shields.io/badge/license-ISC-green.svg)](LICENSE)
 
-A comprehensive healthcare management system with separate frontend and backend components.
+> A modern, full-stack healthcare management system with clean architecture and professional design.
+
+## ✨ Features
+
+- 🔐 **Secure Authentication** - JWT-based user registration and login
+- 👥 **Patient Management** - Complete CRUD operations for patient records
+- 👨‍⚕️ **Doctor Management** - Specialist profiles with assignment capabilities  
+- � **Assignment System** - Link patients to their assigned doctors
+- 📱 **Responsive Design** - Modern UI that works on all devices
+- 🗃️ **Database Integration** - PostgreSQL with Sequelize ORM
+- 🌱 **Sample Data** - Pre-populated with realistic healthcare data
 
 ## 🚀 Quick Start
 
+### Automated Setup
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/healthcare-backend.git
-cd healthcare-backend
-
-# Run the setup script (Unix/Linux/macOS)
+git clone https://github.com/yourusername/healthcare-management-system.git
+cd healthcare-management-system
 ./setup.sh
+```
 
-# Or manual setup:
-npm install
-cp .env.example .env
-# Edit .env with your database credentials
+### Manual Setup
+```bash
+# Install backend dependencies
+npm run install:backend
+
+# Configure environment
+cp backend/.env.example backend/.env
+# Edit backend/.env with your database credentials
+
+# Setup database and sample data
 npm run seed:fresh
-npm run dev
+
+# Start the backend server
+npm run dev:backend
 ```
 
 Then open `frontend/index.html` in your browser.
 
-## 📸 Demo
-
-### Login & Registration
-![Login Screen](docs/images/login-screen.png)
-
-### Patient Management Dashboard
-![Patient Dashboard](docs/images/patient-dashboard.png)
-
-### Doctor Assignment
-![Doctor Assignment](docs/images/doctor-assignment.png)
-
-> **Note**: Add screenshots to `docs/images/` directory to display the application interface.
-
-## Project Overview
-
-CareLink is a full-stack web application designed to manage healthcare data including patients, doctors, and their relationships. The system provides user authentication, patient management, doctor assignment, and a responsive web interface.
-
-## Architecture
-
-This project follows a **separated frontend-backend architecture**:
-
-- **Backend**: RESTful API built with Node.js, Express, and PostgreSQL
-- **Frontend**: Single-page application with vanilla HTML, CSS, and JavaScript
-- **Database**: PostgreSQL with Sequelize ORM
-- **Authentication**: JWT-based authentication system
-
-## Project Structure
+## � Project Structure
 
 ```
-healthcare-backend/
-├── README.md                    # Main project documentation
-├── BACKEND_README.md           # Backend-specific documentation
-├── package.json                # Backend dependencies
-├── server.js                   # Backend entry point
-├── .env                       # Environment variables
-├── src/                       # Backend source code
-│   ├── app.js
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   └── routes/
-└── frontend/                  # Frontend application
-    ├── README.md              # Frontend documentation
-    ├── index.html             # Main HTML file
-    ├── css/
-    │   └── styles.css         # Custom styles
-    ├── js/
-    │   └── app.js            # Frontend JavaScript
-    └── assets/               # Static assets
+healthcare-management-system/
+├── 📁 backend/                 # Backend API Server
+│   ├── 📁 src/
+│   │   ├── 📁 config/         # Database configuration
+│   │   ├── 📁 controllers/    # API route handlers
+│   │   ├── 📁 middleware/     # Authentication middleware
+│   │   ├── 📁 models/         # Database models
+│   │   └── 📁 routes/         # API routes
+│   ├── 📄 server.js          # Server entry point
+│   ├── 📄 package.json       # Backend dependencies
+│   └── 📄 .env.example       # Environment template
+├── 📁 frontend/               # Client Application
+│   ├── 📄 index.html         # Main HTML file
+│   ├── 📁 css/               # Stylesheets
+│   ├── 📁 js/                # JavaScript files
+│   └── 📄 README.md          # Frontend docs
+├── 📁 docs/                   # Documentation
+├── 📄 README.md              # Project documentation
+├── 📄 CONTRIBUTING.md        # Contribution guidelines
+└── 📄 setup.sh               # Automated setup script
 ```
 
-## Features
-
-### Backend Features
-- ✅ JWT Authentication
-- ✅ User Registration & Login
-- ✅ Patient CRUD Operations
-- ✅ Doctor Management
-- ✅ Patient-Doctor Mapping
-- ✅ PostgreSQL Database
-- ✅ RESTful API Design
-- ✅ Middleware Protection
-
-### Frontend Features
-- ✅ Responsive Design
-- ✅ User Authentication UI
-- ✅ Patient Management Dashboard
-- ✅ Doctor Assignment Interface
-- ✅ Modern UI with Tailwind CSS
-- ✅ Toast Notifications
-- ✅ Modal-based Forms
-- ✅ LocalStorage Integration
-
-## Technology Stack
+## 🛠️ Technology Stack
 
 ### Backend
 - **Runtime**: Node.js
 - **Framework**: Express.js
-- **Database**: PostgreSQL
-- **ORM**: Sequelize
-- **Authentication**: JSON Web Tokens (JWT)
-- **Password Hashing**: bcryptjs
-- **Environment**: dotenv
+- **Database**: PostgreSQL + Sequelize ORM
+- **Authentication**: JWT (JSON Web Tokens)
+- **Security**: bcryptjs password hashing
 
 ### Frontend
-- **Markup**: HTML5
+- **Language**: Vanilla JavaScript (ES6+)
 - **Styling**: CSS3 + Tailwind CSS
-- **JavaScript**: Vanilla ES6+
-- **HTTP Client**: Fetch API
+- **HTTP**: Fetch API
 - **Storage**: LocalStorage
 
-## Quick Start
+## 📊 API Endpoints
 
-### Prerequisites
-- Node.js (v14 or higher)
-- PostgreSQL (v12 or higher)
-- npm or yarn
-
-### Backend Setup
-
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-2. **Configure environment variables**:
-   Create a `.env` file in the root directory:
-   ```env
-   DB_HOST=localhost
-   DB_NAME=healthcare_db
-   DB_PASSWORD=your_password
-   DB_DIALECT=postgres
-   JWT_SECRET=your_jwt_secret_key
-   PORT=5000
-   ```
-
-3. **Set up PostgreSQL database**:
-   ```sql
-   CREATE DATABASE healthcare_db;
-   ```
-
-4. **Start the backend server**:
-   ```bash
-   # Development mode
-   npm run dev
-   
-   # Production mode
-   npm start
-   ```
-
-### Frontend Setup
-
-1. **Navigate to frontend directory**:
-   ```bash
-   cd frontend
-   ```
-
-2. **Open in browser**:
-   - Open `index.html` directly in your browser, or
-   - Use a local server like Live Server extension in VS Code
-
-### Database Initialization
-
-The backend will automatically:
-- Connect to PostgreSQL database
-- Create necessary tables on first run
-- Set up relationships between models
-
-## API Documentation
-
-### Authentication Endpoints
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-
-### Patient Endpoints
-- `GET /api/patients` - Get user's patients (Protected)
-- `POST /api/patients` - Create patient (Protected)
-- `GET /api/patients/:id` - Get patient by ID (Protected)
-- `PUT /api/patients/:id` - Update patient (Protected)
-- `DELETE /api/patients/:id` - Delete patient (Protected)
-
-### Doctor Endpoints
-- `GET /api/doctors` - Get all doctors (Protected)
-- `POST /api/doctors` - Create doctor (Protected)
-- `GET /api/doctors/:id` - Get doctor by ID (Protected)
-
-### Mapping Endpoints
-- `POST /api/mappings` - Assign doctor to patient (Protected)
-- `GET /api/mappings/patient/:id` - Get patient's doctors (Protected)
-- `DELETE /api/mappings` - Remove assignment (Protected)
-
-## Development Guidelines
-
-### Backend Development
-- Follow MVC architecture
-- Use middleware for authentication
-- Implement proper error handling
-- Follow RESTful API conventions
-- Use Sequelize for database operations
-
-### Frontend Development
-- Keep JavaScript modular and organized
-- Use semantic HTML structure
-- Follow responsive design principles
-- Implement proper error handling
-- Use modern JavaScript features (ES6+)
-
-## Testing
-
-### Backend Testing
-```bash
-# Run backend tests (when implemented)
-npm test
+### Authentication
+```
+POST /api/auth/register    # User registration
+POST /api/auth/login       # User login
 ```
 
-### Frontend Testing
-- Test in multiple browsers
-- Verify responsive design on different screen sizes
-- Test all user interactions and form submissions
+### Patients
+```
+GET    /api/patients       # Get all patients
+POST   /api/patients       # Create patient
+GET    /api/patients/:id   # Get patient by ID
+PUT    /api/patients/:id   # Update patient
+DELETE /api/patients/:id   # Delete patient
+```
 
-## Deployment
+### Doctors
+```
+GET    /api/doctors        # Get all doctors
+POST   /api/doctors        # Create doctor
+DELETE /api/doctors/:id    # Delete doctor
+```
 
-### Backend Deployment
-1. Set up production database
-2. Configure production environment variables
-3. Use PM2 or similar for process management
-4. Set up reverse proxy (nginx)
+### Assignments
+```
+POST   /api/mappings             # Assign doctor to patient
+GET    /api/mappings/patient/:id # Get patient's doctors
+DELETE /api/mappings             # Remove assignment
+```
+
+## 🎯 Available Scripts
+
+```bash
+# Backend Management
+npm run dev:backend      # Start development server
+npm run start:backend    # Start production server
+
+# Database Management  
+npm run seed:all         # Add sample data
+npm run seed:fresh       # Reset and reseed database
+
+# Installation
+npm run install:all      # Install all dependencies
+```
+
+## 🔧 Development Setup
+
+### Prerequisites
+- Node.js 14+
+- PostgreSQL 12+
+- Git
+
+### Environment Variables
+Create `backend/.env` file:
+```env
+DB_HOST=localhost
+DB_NAME=healthcare_db
+DB_PASSWORD=your_password
+DB_DIALECT=postgres
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+
+### Database Setup
+```bash
+# Create database
+createdb healthcare_db
+
+# Run migrations and seed data
+npm run seed:fresh
+```
+
+## 📱 Frontend Usage
+
+1. Open `frontend/index.html` in your browser
+2. Register a new user account
+3. Login to access the dashboard
+4. Manage patients and doctors
+5. Assign doctors to patients
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the ISC License. See [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- 📖 [Backend Documentation](backend/README.md)
+- 🎨 [Frontend Documentation](frontend/README.md)
+- 🐛 [Report Issues](https://github.com/yourusername/healthcare-management-system/issues)
+- 💬 [Discussions](https://github.com/yourusername/healthcare-management-system/discussions)
+
+---
+
+<div align="center">
+Made with ❤️ for better healthcare management
+</div>
 
 ### Frontend Deployment
 1. Upload files to web server

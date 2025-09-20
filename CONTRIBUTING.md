@@ -1,6 +1,6 @@
-# Contributing to CareLink Healthcare Management System
+# Contributing to Healthcare Management System
 
-Thank you for your interest in contributing to CareLink! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to our Healthcare Management System! This document provides guidelines and instructions for contributing to the project.
 
 ## 🚀 Getting Started
 
@@ -14,19 +14,19 @@ Thank you for your interest in contributing to CareLink! This document provides 
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/yourusername/healthcare-backend.git
-   cd healthcare-backend
+   git clone https://github.com/yourusername/healthcare-management-system.git
+   cd healthcare-management-system
    ```
 
-2. **Install dependencies**
+2. **Install backend dependencies**
    ```bash
-   npm install
+   npm run install:backend
    ```
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env
-   # Edit .env with your database credentials
+   cp backend/.env.example backend/.env
+   # Edit backend/.env with your database credentials
    ```
 
 4. **Set up the database**
@@ -41,7 +41,7 @@ Thank you for your interest in contributing to CareLink! This document provides 
 5. **Start development servers**
    ```bash
    # Backend server
-   npm run dev
+   npm run dev:backend
    
    # Frontend - open frontend/index.html in browser
    ```

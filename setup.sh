@@ -20,16 +20,18 @@ fi
 
 echo "✅ Node.js and PostgreSQL found"
 
-# Install dependencies
-echo "📦 Installing dependencies..."
+# Install backend dependencies
+echo "📦 Installing backend dependencies..."
+cd backend
 npm install
+cd ..
 
-# Check if .env file exists
-if [ ! -f .env ]; then
+# Check if .env file exists in backend
+if [ ! -f backend/.env ]; then
     echo "⚙️ Creating .env file from template..."
-    cp .env.example .env
-    echo "🔧 Please edit .env file with your database credentials before proceeding"
-    echo "   You can run: nano .env"
+    cp backend/.env.example backend/.env
+    echo "🔧 Please edit backend/.env file with your database credentials before proceeding"
+    echo "   You can run: nano backend/.env"
     read -p "Press Enter when you have configured your .env file..."
 fi
 
@@ -48,22 +50,24 @@ read -p "Do you want to add sample doctors and patients? (y/n): " seed_data
 
 if [ "$seed_data" = "y" ] || [ "$seed_data" = "Y" ]; then
     echo "Adding sample data..."
+    cd backend
     npm run seed:fresh
+    cd ..
 fi
 
 echo ""
 echo "🎉 Setup Complete!"
 echo ""
 echo "📋 Next Steps:"
-echo "1. Start the backend server: npm run dev"
+echo "1. Start the backend server: npm run dev:backend"
 echo "2. Open frontend/index.html in your browser"
 echo "3. Register a new user account to get started"
 echo ""
 echo "📚 Available Commands:"
-echo "• npm start          - Start production server"
-echo "• npm run dev        - Start development server"
-echo "• npm run seed:fresh - Reset and add sample data"
-echo "• npm run seed:all   - Add sample data (keep existing)"
+echo "• npm run start:backend  - Start production server"
+echo "• npm run dev:backend    - Start development server"  
+echo "• npm run seed:fresh     - Reset and add sample data"
+echo "• npm run seed:all       - Add sample data (keep existing)"
 echo ""
 echo "📖 For more information, see README.md"
 echo "🐛 Found an issue? Check CONTRIBUTING.md"
