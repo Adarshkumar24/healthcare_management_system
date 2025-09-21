@@ -17,6 +17,32 @@
 - 🗃️ **Database Integration** - PostgreSQL with Sequelize ORM
 - 🌱 **Sample Data** - Pre-populated with realistic healthcare data
 
+## 📸 Screenshots
+
+### CareLink Authentication Interface
+![Login & Registration](docs/images/login-register-page.png)
+
+**Key Features Shown:**
+- 🎨 Modern, professional healthcare branding
+- 🔐 JWT-based authentication system
+- 📱 Clean, responsive login/register interface
+- 🏥 CareLink dashboard with medical theming
+- ⚡ Tabbed navigation between Login and Register
+- 🔒 Secure email and password authentication
+
+### Patient & Doctor Management Dashboard
+![Patient-Doctor Management](docs/images/patient-doctor-dashboard.png)
+
+**Key Features Shown:**
+- 👥 Patient management with CRUD operations
+- 👨‍⚕️ Doctor profiles and specialization management
+- 🔗 Patient-Doctor assignment and mapping system
+- 📊 Real-time healthcare data display
+- 🇮🇳 Sample Indian patient and doctor data
+- 🎯 Modern, intuitive dashboard interface
+
+*The complete healthcare management system showcasing secure authentication and comprehensive patient-doctor management capabilities.*
+
 ## 🚀 Quick Start & How to Run
 
 ### Prerequisites
