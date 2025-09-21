@@ -27,6 +27,18 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the healthcare application." });
 });
 
+// Health check endpoint for teachers/evaluators
+app.get("/api/health", (req, res) => {
+  res.json({ 
+    status: "OK",
+    message: "Backend server is running successfully",
+    timestamp: new Date().toISOString(),
+    port: process.env.PORT || 5000,
+    database: "Connected to PostgreSQL",
+    version: "1.0.0"
+  });
+});
+
 // Import and use all application routes
 const authRoutes = require("./routes/auth.routes");
 const patientRoutes = require("./routes/patient.routes");

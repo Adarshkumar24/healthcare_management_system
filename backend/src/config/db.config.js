@@ -63,14 +63,11 @@
 require('dotenv').config();
 
 module.exports = {
-    HOST: process.env.DB_HOST,
-    // === THIS IS THE FINAL, CORRECT USERNAME ===
-    USER: 'adarshpradhan', 
-    // ===========================================
-    PASSWORD: process.env.DB_PASSWORD,
-    // Using the original database name
-    DB: 'healthcare_db', 
-    DIALECT: process.env.DB_DIALECT,
+    HOST: process.env.DB_HOST || 'localhost',
+    USER: process.env.DB_USER || 'adarshpradhan', 
+    PASSWORD: process.env.DB_PASSWORD || '',
+    DB: process.env.DB_NAME || 'healthcare_db', 
+    DIALECT: process.env.DB_DIALECT || 'postgres',
     pool: {
       max: 5,
       min: 0,

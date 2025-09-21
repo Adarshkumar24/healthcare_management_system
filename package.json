@@ -1,0 +1,36 @@
+{
+  "name": "healthcare-management-system",
+  "version": "1.0.0",
+  "description": "A comprehensive healthcare management system with separate frontend and backend components",
+  "main": "backend/server.js",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "echo 'Frontend uses vanilla HTML/CSS/JS - no installation required'",
+    "install:all": "npm run install:backend",
+    "dev:backend": "cd backend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "seed:all": "cd backend && npm run seed:all",
+    "seed:fresh": "cd backend && npm run seed:fresh",
+    "setup": "./setup.sh"
+  },
+  "keywords": [
+    "healthcare",
+    "management-system",
+    "nodejs",
+    "express",
+    "postgresql",
+    "jwt",
+    "vanilla-js",
+    "fullstack"
+  ],
+  "author": "Adarsh Kumar",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Adarshkumar24/healthcare_management_system.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
